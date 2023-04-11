@@ -1,0 +1,26 @@
+.footer {
+  background: black;
+  display: flex;
+  justify-content: space-evenly;
+
+  .footer_socials {
+    display: flex;
+  }
+
+  .footer_links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    li {
+      line-height: 2.3;
+    }
+
+    a {
+      font-size: 13px;
+      color: grey;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
