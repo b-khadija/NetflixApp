@@ -1,5 +1,6 @@
 import './App.scss';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       {/* video */}
       {/* quick view */}
       {/* footer */}
+      <Footer />
     </div>
   );
 }

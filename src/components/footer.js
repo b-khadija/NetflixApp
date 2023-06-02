@@ -1,84 +1,67 @@
 import React from 'react';
-import { ImFacebook } from 'react-icons/im';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { AiOutlineTwitter } from 'react-icons/ai';
-import { AiFillYoutube } from 'react-icons/ai';
-import "./footer.scss"
+import './Footer.scss';
+import { FaFacebookF } from 'react-icons/fa';
+import { BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
 
-function footer() {
+
+function Footer() {
   return (
     <footer className='footer'>
-      <div className='container'>
-        <div className='footer_socials'>
-          <a href='/' className='footer_link'>
-            <ImFacebook
-            style={{ 
-              color: "#fff",
-              width:"35px",
-              height: "29px"
-              }}
-            />
-          </a>
-          <a href='/' className='footer_link'>
-            <AiOutlineInstagram
-            style={{ 
-              color: "#fff",
-              width:"36px",
-              height: "29px"
-              }}
-            />
-          </a>
-          <a href='/' className='footer_link'>
-            <AiOutlineTwitter
-            style={{ 
-              color: "#fff",
-              width:"36px",
-              height: "29px"
-              }}
-            />
-          </a>
-          <a href='/' className='footer_link'>
-            <AiFillYoutube
-            style={{ 
-              color: "#fff",
-              width:"36px",
-              height: "29px"
-              }}
-            />
-          </a>
+      <div>
+        <div className='footer__socials'>
+          <a href='/' className='footer__social'><FaFacebookF /></a>
+          <a href='/' className='footer__social'><BsInstagram /></a>
+          <a href='/' className='footer__social'><BsTwitter /></a>
+          <a href='/' className='footer__social'><BsYoutube /></a>
         </div>
-        <ul className='footer_links'>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+        <ul className='footer__links'>
+          <li className='footer__link'>
+            <a href='/'>Audiodescription</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Relatios Investisseurs</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Confidentialité</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Nous contacter</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Centre d'aide</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Recrutement</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Informations légales</a>
           </li>
-          <li>
-            <a href='/' className='footer_link'>Lien footer</a>
+          <li className='footer__link'>
+            <a href='/'>Cartes cadeaux</a>
+          </li>
+          <li className='footer__link'>
+            <a href='/'>Boutique Netflix</a>
+          </li>
+          <li className='footer__link'>
+            <a href='/'>Préférences de cookies</a>
+          </li>
+          <li className='footer__link'>
+            <a href='/'>Presse</a>
+          </li>
+          <li className='footer__link'>
+            <a href='/'>Conditions d'utilisation</a>
+          </li>
+          <li className='footer__link'>
+            <a href='/'>Mentions légales</a>
           </li>
         </ul>
-        <div className='footer_copy'>
-          <p>Netflix Clone - tous droits réservés</p>
+        <div className='container__copy'>
+          <span className='code_service'>Code de service</span>
+          <p className='copyright'>© 1997-2023 - Netflix Clone</p>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default footer;
+export default Footer;
