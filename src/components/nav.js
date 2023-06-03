@@ -3,7 +3,8 @@ import './Nav.scss';
 import { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { MdNotifications } from 'react-icons/md';
+import { RiArrowDownSFill } from 'react-icons/ri';
+import { IoMdNotificationsOutline } from 'react-icons/io'
 
 function Nav() {
   const [navBlack, setNavBlack] = useState(false);
@@ -35,9 +36,10 @@ function Nav() {
       </nav>
       <div className='nav__actions'>
         <a href='/' className='nav__action'><AiOutlineSearch /></a>
-        <a href='/' className='nav__action'><MdNotifications /></a>
-        <a href='/' className='nav__action'>
+        <a href='/' className='nav__action'><IoMdNotificationsOutline /></a>
+        <a href='/' className='nav__action profile__container'>
           <img src='./images/avatar.png' alt='' className='profile-picture'/>
+          <RiArrowDownSFill size={18}/>
         </a>
       </div>
     </div>
