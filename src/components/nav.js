@@ -7,19 +7,22 @@ import { RiArrowDownSFill } from 'react-icons/ri';
 import { IoMdNotificationsOutline } from 'react-icons/io'
 
 function Nav() {
-  const [navBlack, setNavBlack] = useState(false);
-  const [toggleMenu, settoggleMenu] = useState(false);
+  const [navBlack, setNavBlack] = useState(false); // État pour gérer l'apparence du menu de navigation
+  const [toggleMenu, settoggleMenu] = useState(false); // État pour gérer l'affichage du menu hamburger
 
   const transitionNav = () => {
+    // Détermine si le menu de navigation doit devenir noir en fonction du défilement de la page
     window.scrollY > 100 ? setNavBlack(true) : setNavBlack(false);
   };
 
   useState(() => {
+    // Ajoute un écouteur d'événements pour détecter le défilement de la page
     document.addEventListener('scroll', transitionNav);
   });
 
   const handleClick = () => {
     console.log(toggleMenu);
+    // Inverse l'état du menu hamburger lorsqu'il est cliqué
     toggleMenu ? settoggleMenu(false) : settoggleMenu(true);
   }
 
