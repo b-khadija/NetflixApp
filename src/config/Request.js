@@ -1,6 +1,6 @@
 // 584c23b365d64166b0051e1dfe1ad3fb
 
-const API_KEY = '584c23b365d64166b0051e1dfe1ad3fb';
+const API_KEY = '41c3dd562a7766ccae1b24e1f051dcf2';
 const baseURL = 'https://api.themoviedb.org/3/'; // URL de base de l'API TMDB
 
 // Objets contenant les différentes requêtes vers l'API TMDB pour récupérer des films dans différentes catégories

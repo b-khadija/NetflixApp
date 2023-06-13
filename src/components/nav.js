@@ -29,7 +29,9 @@ function Nav() {
   return (
     <div className={`nav ${navBlack || toggleMenu ? "nav--black" : "nav--transparent"} ${toggleMenu && "show"}`}>
       <button className='nav__burger' onClick={handleClick}><RxHamburgerMenu size={30} className='icon-burger'/></button>
-      <img src='./images/netflix-logo.png' alt='Logo Netflix' className='nav__logo' />
+      <a href='../App.js'>
+        <img src='../images/netflix-logo.png' alt='Logo Netflix' className='nav__logo' />
+      </a>
       <nav className='nav__links'>
         <a href='/' className='nav__link'>Accueil</a>
         <a href='/' className='nav__link'>Séries</a>
