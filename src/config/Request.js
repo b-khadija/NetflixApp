@@ -1,12 +1,10 @@
-// 584c23b365d64166b0051e1dfe1ad3fb
-
-const API_KEY = '41c3dd562a7766ccae1b24e1f051dcf2';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const baseURL = 'https://api.themoviedb.org/3/'; // URL de base de l'API TMDB
 
 // Objets contenant les différentes requêtes vers l'API TMDB pour récupérer des films dans différentes catégories
 const requests = {
   // Requête pour récupérer les films originaux Netflix
-  fetchNetflixOriginals: `${baseURL}trending/all/week?api_key=${API_KEY}`,
+  fetchNetflixOriginals: `${baseURL}trending/all/week?api_key=${API_KEY}&language=fr-FR`,
   // Requête pour récupérer les plus populaires 'History'
   fetchPopular: `${baseURL}movie/popular?api_key=${API_KEY}&with_genres=36`,
   // Requête pour récupérer les films tendances de la semaine

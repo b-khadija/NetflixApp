@@ -1,5 +1,4 @@
 import React from 'react';
-import './Row.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Row.scss';
@@ -9,12 +8,12 @@ function Row({ title, url, isPoster }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // Fonction asynchrone pour récupérer les données des films tendances
+    // Fonction asynchrone pour récupérer les données des films
     async function fetchData() {
       try {
-        // Effectuer une requête GET à l'API TMDB pour les films tendances
+        // Effectuer une requête GET à l'API TMDB pour les films
         const request = await axios.get(url);
-        // Sélectionner un film aléatoire parmi les résultats de la requête et le stocker dans l'état movies
+        // Stocker les résultats de la requête dans l'état movies
         setMovies(request.data.results);
       } catch (error) {
         console.error('Error fetching movie data:', error);
@@ -27,10 +26,11 @@ function Row({ title, url, isPoster }) {
 
   async function searchYouTubeTrailer(title) {
     try {
+      const API_KEY_YOUTUBE = process.env.REACT_APP_YOUTUBE_API_KEY;
       // Effectuer une requête GET à l'API YouTube pour rechercher la bande-annonce correspondant au titre
       const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
         params: {
-          key: 'AIzaSyB8o2Eb0UufmW9bf9bZu_eY21wQMvwqrD4',
+          key: API_KEY_YOUTUBE,
           part: 'snippet',
           q: `${title} bande annonce`,
           maxResults: 1,
@@ -41,7 +41,6 @@ function Row({ title, url, isPoster }) {
       // Vérifier si des vidéos ont été trouvées
       if (response.data.items.length > 0) {
         const videoId = response.data.items[0].id.videoId;
-        console.log('Video found on YouTube. Video ID:', videoId);
         // Rediriger vers la vidéo YouTube en utilisant l'ID de la vidéo
         window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
       } else {
@@ -52,23 +51,46 @@ function Row({ title, url, isPoster }) {
     }
   }
 
+  function selectMoviesWithImage() {
+    // Filtrer les films pour ne récupérer que ceux avec une image de poster ou de backdrop
+    const moviesWithImage = movies.filter((movie) => {
+      if (isPoster) {
+        return movie.poster_path !== null;
+      } else {
+        return movie.backdrop_path !== null;
+      }
+    });
+
+    return moviesWithImage;
+  }
+
+  const moviesWithImage = selectMoviesWithImage();
+
   return (
     <div className='row'>
+      {/* Affichage du titre de la rangée */}
       <h2 className='row__title'>{title}</h2>
       <div className='row__images'>
-        {movies.map((movie) => (
+        {/* Parcours des films avec images */}
+        {moviesWithImage.map((movie) => (
           <div key={movie.id}>
+            {/* Affichage de l'image du film */}
             <img
-              src={`${baseUrl}${isPoster ? movie.poster_path ?? '' : movie.backdrop_path ?? ''}`}
+              // Source de l'image : l'URL de base concaténé avec le chemin de l'image (selon qu'il s'agit d'une affiche ou d'un arrière-plan)
+              src={`${baseUrl}${isPoster ? movie.poster_path : movie.backdrop_path}`}
+              // Classe CSS pour l'image
               className='row__image'
+              // Texte alternatif de l'image (utilise le titre du film s'il existe, sinon le titre original, sinon "Titre inconnu")
               alt={movie.title ?? movie.original_title ?? 'Titre inconnu'}
+              // Gestion de l'événement clic sur l'image : recherche de la bande-annonce sur YouTube avec le titre du film
               onClick={() => searchYouTubeTrailer(movie.title || movie.original_title)}
             />
           </div>
         ))}
       </div>
     </div>
-  );
+);
+
 }
 
 export default Row;

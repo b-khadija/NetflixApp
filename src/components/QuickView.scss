@@ -11,6 +11,7 @@
 
   &.open {
     display: block;
+    width: -webkit-fill-available;
   }
 
   &__banner {
@@ -24,6 +25,21 @@
   &__content {
     padding: 3rem;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      text-align: justify;
+    }
+
+    .release__date {
+      padding-top: 15px;
+    }
+  }
+
+  &__title {
+    padding: 20px 0;
   }
 
   &__close {
@@ -40,4 +56,28 @@
     left: 25%;
     right: 25%;
   }
+}
+
+.popup__video {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+@media screen and (max-width : 767.98px) {
+  iframe {
+    width: fit-content;
+    color: red;
+  }
+}
+
+body.popup-open .popup__video {
+  display: block;
+}
+
+body.quickView__open {
+  overflow: hidden;
 }

@@ -2,10 +2,11 @@ import axios from 'axios';
 
 async function searchYouTubeTrailer(title) {
   try {
-    // Perform a GET request to the YouTube Data API
+    const API_KEY_YOUTUBE = process.env.REACT_APP_YOUTUBE_API_KEY;
+    // Effectuer une requête GET vers l'API YouTube Data
     const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
-        key: 'AIzaSyB8o2Eb0UufmW9bf9bZu_eY21wQMvwqrD4',
+        key: API_KEY_YOUTUBE,
         part: 'snippet',
         q: `${title} bande annonce`,
         maxResults: 1,
@@ -13,13 +14,11 @@ async function searchYouTubeTrailer(title) {
       },
     });
 
-    // Check if videos were found
+    // Vérifier si des vidéos ont été trouvées
     if (response.data.items.length > 0) {
       const videoId = response.data.items[0].id.videoId;
-      const videoEmbedCode = `<iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube Video Player" frameborder="0" allowfullscreen></iframe>`;
-      console.log('Video found on YouTube. Video ID:', videoId);
-      console.log('Embedded video code:', videoEmbedCode);
-      // Display the embedded video code on the page
+      const videoEmbedCode = `<iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube bande-annonce" frameborder="0" allowfullscreen></iframe>`;
+      // Afficher le code de la vidéo intégrée sur la page
       document.getElementById('video-container').innerHTML = videoEmbedCode;
     } else {
       console.log('No video found on YouTube for the film:', title);
