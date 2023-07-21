@@ -5,9 +5,12 @@ En tant que passionnée de séries, j'ai décidé de mettre ma créativité à l
   
 J'ai réalisé un clone de Netflix ou ✨ StreamBerry ✨ pour ceux qui connaissent !
   
-Je ne connaissais pas les API, React. 
-Avec ce projet j'ai pu utilisée l'API TMDB pour faire mes requêtes et récupéerer les films catégories.
-J'ai également utilisée Youtube Data API pour récupérer les bandes annonces.
+Ce projet m'a permis de découvrir React:
+-  Conception et la structuration des composants.
+-  Découpage de l'interface en composants réutilisables.
+-  Bibliothèque React Icons intégration très simple des icônes.
+Avec ce projet j'ai pu utilisée l'API The Movie Database (TMDB) pour faire des requêtes et récupérer les films, ainsi que leurs catégories.
+j'ai également intégré la YouTube Data API dans mon projet. Grâce à elle, j'ai pu récupérer les bandes annonces des films.
 Le tout avec React
 
 </p>
@@ -29,7 +32,7 @@ $ cd src/
 $ npm install
 $ npm start
 ```
-> il vous faudra génerer votre propre API KEY
+> il vous faudra génerer une clé API TMDB et YouTube Data API. Car pour des raisons de sécurité j'ai stocké ces clés dans un fichier ```.env``` 
 
 
 ## Illustrations
