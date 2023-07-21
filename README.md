@@ -9,6 +9,7 @@ Ce projet m'a permis de découvrir React:
 -  Conception et la structuration des composants.
 -  Découpage de l'interface en composants réutilisables.
 -  Bibliothèque React Icons intégration très simple des icônes.
+  
 Avec ce projet j'ai pu utilisée l'API The Movie Database (TMDB) pour faire des requêtes et récupérer les films, ainsi que leurs catégories.
 j'ai également intégré la YouTube Data API dans mon projet. Grâce à elle, j'ai pu récupérer les bandes annonces des films.
 Le tout avec React
