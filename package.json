@@ -10,7 +10,6 @@
     "dotenv": "^16.3.1",
     "env-cmd": "^10.1.0",
     "googleapis": "^118.0.0",
-    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -25,8 +24,9 @@
   },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
-    "build": "env-cmd -f .env react-scripts build",
+    "build-dev": "env-cmd -f .env react-scripts build",
     "build-prod": "env-cmd -f ./.env.production react-scripts build",
+    "build-sass": "sass src/styles/main.scss public/css/main.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -53,6 +53,7 @@
     "@babel/eslint-parser": "^7.22.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^7.32.0",
-    "eslint-scope": "^7.2.0"
+    "eslint-scope": "^7.2.0",
+    "sass": "^1.66.1"
   }
 }
