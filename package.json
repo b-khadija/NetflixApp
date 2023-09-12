@@ -24,17 +24,23 @@
   },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
-    "build-dev": "env-cmd -f .env react-scripts build",
+    "build": "env-cmd -f .env react-scripts build",
     "build-prod": "env-cmd -f ./.env.production react-scripts build",
     "build-sass": "sass src/styles/main.scss public/css/main.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "env-cmd -f ./config/dev.env nodemon src/index.js"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:react/recommended"
+    ],
+    "rules": {
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -53,6 +59,7 @@
     "@babel/eslint-parser": "^7.22.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-scope": "^7.2.0",
     "sass": "^1.66.1"
   }
